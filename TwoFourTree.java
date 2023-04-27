@@ -43,6 +43,9 @@ public class TwoFourTree implements Dictionary {
      */
     @Override
     public Object findElement(Object key) {
+        if(!treeComp.isComparable(key)) {
+            throw new InvalidObjectException("Error: Invalid key inputted");
+        }
         searchResult rslts = this.findNodeWith(key);
         if(!rslts.wasFound()) {
             return null;
